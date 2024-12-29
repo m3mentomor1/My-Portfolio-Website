@@ -6,10 +6,17 @@ function App() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false); // Desktop dropdown
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [stackActiveDropdown, setStackActiveDropdown] = useState<string | null>(null);
 
   // Explicitly typing 'section' as one of the allowed categories
   const toggleDropdown = (section: "UI/UX" | "Web Development" | "Mobile Development" | "AI/ML" | "Data Projects" | "Other Projects") => {
     setActiveDropdown(activeDropdown === section ? null : section);
+  };
+
+  const stackToggleDropdown = (
+    section: "UI/UX" | "Frontend" | "Backend" | "AI/ML" | "Other Tools"
+  ) => {
+    setStackActiveDropdown(stackActiveDropdown === section ? null : section);
   };
 
   useEffect(() => {
@@ -274,35 +281,289 @@ function App() {
             </p>
           </div>
         </section>
-
+        
         {/* Education Section */}
         <section
           id="education"
-          className="h-[300px] md:min-h-[calc(100vh-5rem)] bg-[#faf9f6] flex flex-col items-center justify-center"
+          className="h-[480px] md:min-h-[500px] bg-[#faf9f6] flex flex-col items-center justify-center px-4 md:px-10"
         >
-          <h2 className="text-xl md:text-3xl font-bold text-gray-800">
+          <h2 className="text-xl md:text-3xl font-bold text-gray-800 mb-8">
             Education
           </h2>
+          <div className="max-w-5xl w-full space-y-8">
+            {/* Education Item 1 */}
+            <div className="flex items-start space-x-4">
+              <div className="w-4 h-4 bg-green-600 rounded-full mt-1"></div>
+              <div className="flex-1">
+                <div className="bg-white shadow-md rounded-lg p-4 relative">
+                  {/* New Heading for Program Type */}
+                  <p className="text-sm text-gray-600">College (Specializing in Intelligent Systems)</p>
+                  <h3 className="text-lg font-bold text-gray-800">
+                    Bachelor of Science - BS, Computer Engineering
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    Technological Institute of the Philippines | Quezon City, Metro Manila
+                  </p>
+                  {/* Position the Date to the Right */}
+                  <p className="text-sm text-gray-600 absolute top-4 right-4">
+                    Aug 2021 – Present
+                  </p>
+                </div>
+              </div>
+            </div>
+            {/* Education Item 2 */}
+            <div className="flex items-start space-x-4">
+              <div className="w-4 h-4 bg-green-600 rounded-full mt-1"></div>
+              <div className="flex-1">
+                <div className="bg-white shadow-md rounded-lg p-4 relative">
+                  {/* New Heading for Program Type */}
+                  <p className="text-sm text-gray-600">Senior High School (Technical-Vocational Livelihood - TVL, Track)</p>
+                  <h3 className="text-lg font-bold text-gray-800">
+                    Information and Communication Technology - ICT, Strand
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    Colegio De San Jose Del Monte Inc. | San Jose del Monte, Bulacan
+                  </p>
+                  {/* Position the Date to the Right */}
+                  <p className="text-sm text-gray-600 absolute top-4 right-4">
+                    2019 – 2021
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
-
 
         {/* Personal Stack Section */}
         <section
           id="stack"
-          className="h-[300px] md:min-h-[calc(100vh-5rem)] bg-[#faf9f6] flex flex-col items-center justify-center"
+          className="min-h-[450px] md:min-h-[350px] bg-[#faf9f6] flex flex-col items-center justify-center px-4 md:px-10"
         >
           <h2 className="text-xl md:text-3xl font-bold text-gray-800">
             Personal Stack
           </h2>
-          <p className="text-sm md:text-base text-gray-600 mt-4 max-w-3xl text-center">
-            This is the Personal Stack section. Add your content here.
-          </p>
+
+          {/* Dropdown Menus */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 w-full max-w-[1120px]">
+            {[
+              {
+                category: "UI/UX",
+                items: [
+                  { name: "Figma", image: "/Stack-Images/Figma.png" },
+                  { name: "Canva", image: "/Stack-Images/Canva.png" },
+                  { name: "Photopea", image: "/Stack-Images/Photopea.png" },
+                  { name: "Material Design", image: "/Stack-Images/MaterialDesign.png" },
+                ],
+                pluginsAndFiles: [
+                  { name: "Material Symbols (By Google Fonts)", image: "/Stack-Images/FigmaMD.png" },
+                  { name: "Material Design Icons (By Google Fonts)", image: "/Stack-Images/FigmaMD.png" },
+                ],
+              },
+              {
+                category: "Frontend",
+                isSpecial: true, // Mark Frontend as a special category
+              },
+              {
+                category: "Backend",
+                isSpecial: true, // Mark Backend as a special category
+              },
+              {
+                category: "AI/ML",
+                items: [
+                  { name: "Python", image: "/Stack-Images/Python.png" },
+                  { name: "OpenCV", image: "/Stack-Images/OpenCV.png" },
+                  { name: "PyTorch", image: "/Stack-Images/Pytorch.png" },
+                  { name: "TensorFlow", image: "/Stack-Images/Tensorflow.png" },
+                  { name: "scikit-learn", image: "/Stack-Images/Scikit.png" },
+                  { name: "Azure ML Studio", image: "/Stack-Images/AzureML.png" },
+                  { name: "Streamlit", image: "/Stack-Images/Streamlit.png" },
+                ],
+              },
+              {
+                category: "Other Tools",
+                items: [
+                  { name: "Git", image: "/Stack-Images/Git.png" },
+                  { name: "GitHub", image: "/Stack-Images/Github.png" },
+                  { name: "Postman", image: "/Stack-Images/Postman.png" },
+                  { name: "Azure Data Studio", image: "/Stack-Images/AzureDataStudio.png" },
+                ],
+              },
+            ].map(({ category, items, pluginsAndFiles, isSpecial }) => (
+              <div key={category} className="relative">
+                {isSpecial ? (
+                  <>
+                    <button
+                      onClick={() =>
+                        stackToggleDropdown(category as "Frontend" | "Backend")
+                      }
+                      className="w-full flex justify-between items-center p-4 bg-white shadow-md rounded-lg text-gray-800 font-semibold focus:outline-none hover:bg-gray-100 transition"
+                    >
+                      {category}
+                      <ExpandMore
+                        className={`ml-2 transition-transform duration-300 ${
+                          stackActiveDropdown === category ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+                    <div
+                      className={`transition-all duration-300 overflow-hidden ${
+                        stackActiveDropdown === category ? "max-h-auto" : "max-h-0"
+                      }`}
+                    >
+                      <div className="p-4 mt-2 rounded-b-lg shadow-md">
+                        {/* Web Section */}
+                        <div>
+                          <h3 className="text-lg font-semibold text-gray-800 mb-2">Web</h3>
+                          <div className="grid grid-cols-4 gap-4">
+                            {(category === "Frontend" && "Backend"
+                              ? [
+                                  { name: "TypeScript", image: "/Stack-Images/TypeScript.png" },
+                                  { name: "HTML", image: "/Stack-Images/HTML.png" },
+                                  { name: "CSS", image: "/Stack-Images/CSS.png" },
+                                  { name: "React", image: "/Stack-Images/React.png" },                          
+                                  { name: "Tailwind CSS", image: "/Stack-Images/Tailwind.png" },
+                                  { name: "Material UI", image: "/Stack-Images/MaterialUI.png" },
+                                  { name: "GitHub Actions", image: "/Stack-Images/GithubActions.png" },
+                                  { name: "Azure Static Web Apps", image: "/Stack-Images/AzureStatic.png" },
+                                ]
+                              : [
+                                  { name: "NestJS", image: "/Stack-Images/NestJS.png" },
+                                  { name: "Docker", image: "/Stack-Images/Docker.png" },
+                                  { name: "GitHub Actions", image: "/Stack-Images/GithubActions.png" },
+                                  { name: "Azure App Service", image: "/Stack-Images/AppService.png" },
+                                  { name: "Azure DB for PostgreSQL", image: "/Stack-Images/AzureDB.png" },
+                                  { name: "Azure Blob Storage", image: "/Stack-Images/AzureBlob.png" },
+                                  { name: "Supabase DB", image: "/Stack-Images/SupabaseDB.png" },
+                                  { name: "Supabase Storage", image: "/Stack-Images/SupabaseStorage.png" },
+                                  { name: "Supabase Auth", image: "/Stack-Images/SupabaseAuth.png" },
+                                ]
+                            ).map((tool) => (
+                              <div key={tool.name} className="flex flex-col items-center">
+                                <div className="w-20 h-20 flex items-center justify-center overflow-hidden">
+                                  <img
+                                    src={tool.image}
+                                    alt={tool.name}
+                                    className="w-11 h-11 object-contain"
+                                  />
+                                </div>
+                                <p className="mt-2 text-center text-sm text-gray-700 font-medium">{tool.name}</p>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Mobile Section */}
+                        <div className="mt-8">
+                          <h3 className="text-lg font-semibold text-gray-800 mb-2">Mobile</h3>
+                          <div className="grid grid-cols-4 gap-4">
+                            {(category === "Frontend" && "Backend"
+                              ? [
+                                  { name: "TypeScript", image: "/Stack-Images/TypeScript.png" },
+                                  { name: "React Native", image: "/Stack-Images/ReactNative.png" },                         
+                                  { name: "Expo", image: "/Stack-Images/Expo.png" },
+                                ]
+                              : [
+                                  { name: "NestJS", image: "/Stack-Images/NestJS.png" },
+                                  { name: "Docker", image: "/Stack-Images/Docker.png" },
+                                  { name: "GitHub Actions", image: "/Stack-Images/GithubActions.png" },
+                                  { name: "Azure App Service", image: "/Stack-Images/AppService.png" },
+                                  { name: "SQLite", image: "/Stack-Images/Sqlite.png" },
+                                  { name: "Azure DB for PostgreSQL", image: "/Stack-Images/AzureDB.png" },
+                                  { name: "Azure Blob Storage", image: "/Stack-Images/AzureBlob.png" },
+                                  { name: "Supabase DB", image: "/Stack-Images/SupabaseDB.png" },
+                                  { name: "Supabase Storage", image: "/Stack-Images/SupabaseStorage.png" },
+                                  { name: "Supabase Auth", image: "/Stack-Images/SupabaseAuth.png" },
+                                ]
+                            ).map((tool) => (
+                              <div key={tool.name} className="flex flex-col items-center">
+                                <div className="w-20 h-20 flex items-center justify-center overflow-hidden">
+                                  <img
+                                    src={tool.image}
+                                    alt={tool.name}
+                                    className="w-11 h-11 object-contain"
+                                  />
+                                </div>
+                                <p className="mt-2 text-center text-sm text-gray-700 font-medium">{tool.name}</p>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <button
+                      onClick={() =>
+                        stackToggleDropdown(category as "UI/UX" | "AI/ML" | "Other Tools")
+                      }
+                      className="w-full flex justify-between items-center p-4 bg-white shadow-md rounded-lg text-gray-800 font-semibold focus:outline-none hover:bg-gray-100 transition"
+                    >
+                      {category}
+                      <ExpandMore
+                        className={`ml-2 transition-transform duration-300 ${
+                          stackActiveDropdown === category ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+                    <div
+                      className={`transition-all duration-300 overflow-hidden ${
+                        stackActiveDropdown === category ? "max-h-auto" : "max-h-0"
+                      }`}
+                    >
+                      <div className="p-4 mt-2 rounded-b-lg shadow-md">
+                        <div className="grid grid-cols-4 gap-4">
+                          {items?.map((tool) => (
+                            <div key={tool.name} className="flex flex-col items-center">
+                              <div className="w-20 h-20 flex items-center justify-center overflow-hidden">
+                                <img
+                                  src={tool.image}
+                                  alt={tool.name}
+                                  className="w-11 h-11 object-contain"
+                                />
+                              </div>
+                              <p className="mt-2 text-center text-sm text-gray-700 font-medium">{tool.name}</p>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Figma Plugins & Design Files */}
+                        {pluginsAndFiles && (
+                          <>
+                            <h3 className="mt-8 mb-4 text-lg font-semibold text-gray-800">
+                              Figma Plugins & Design Files
+                            </h3>
+                            <div className="grid grid-cols-2 gap-4">
+                              {pluginsAndFiles.map((plugin) => (
+                                <div key={plugin.name} className="flex flex-col items-center">
+                                  <div className="w-20 h-20 flex items-center justify-center overflow-hidden">
+                                    <img
+                                      src={plugin.image}
+                                      alt={plugin.name}
+                                      className="w-11 h-11 object-contain"
+                                    />
+                                  </div>
+                                  <p className="mt-2 text-center text-sm text-gray-700 font-medium">
+                                    {plugin.name}
+                                  </p>
+                                </div>
+                              ))}
+                            </div>
+                          </>
+                        )}
+                      </div>
+                    </div>
+                  </>
+                )}
+              </div>
+            ))}
+          </div>
         </section>
 
         {/* Projects Section */}
         <section
           id="projects"
-          className="min-h-[calc(100vh-5rem)] bg-[#faf9f6] flex flex-col items-center justify-center"
+          className="min-h-[580px] bg-[#faf9f6] flex flex-col items-center justify-center"
         >
           <h2 className="text-xl md:text-3xl font-bold text-gray-800 mb-8">
             Projects
@@ -353,6 +614,12 @@ function App() {
                           link: "https://github.com/m3mentomor1/SafeBoxx.-Design",
                           image: "/images/ecommerce-personas.png",
                         },
+                        {
+                          header: "Locker Reservation App for Nearby Parking Lots",
+                          description: "Design mockups for a project called SecureSpot, a mobile app that allows users to find and reserve lockers near parking lots & parking spaces.",
+                          link: "https://github.com/m3mentomor1/SecureSpot-Design",
+                          image: "/images/ecommerce-personas.png",
+                        },
                       ].map((project, index) => (
                         <div
                           key={index}
@@ -381,7 +648,7 @@ function App() {
                             href={project.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="w-full bg-blue-600 text-white text-sm font-semibold py-2 px-4 rounded-md flex items-center justify-center space-x-2 hover:bg-blue-700 transition"
+                            className="w-full bg-gray-800 text-white text-sm font-semibold py-2 px-4 rounded-md flex items-center justify-center space-x-2 hover:bg-blue-700 transition"
                           >
                             <span>View Project</span>
                             <ArrowOutward fontSize="small" />
@@ -404,10 +671,10 @@ function App() {
                           image: "/images/cms-platform.png",
                         },
                         {
-                          header: "Portfolio Website",
-                          description: "Created a personal portfolio website showcasing creative designs and projects.",
-                          link: "https://example.com/portfolio",
-                          image: "/images/portfolio-website.png",
+                          header: "The Tell-Tale Heart Narrative Webpage",
+                          description: "This is a simple static webpage using only HTML & CSS.",
+                          link: "https://github.com/m3mentomor1/The_Tell-Tale_Heart_Narrative_Webpage",
+                          image: "/Card-Preview-Images/TellTale-Screenshot.png",
                         },
                       ].map((project, index) => (
                         <div
@@ -437,7 +704,7 @@ function App() {
                             href={project.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="w-full bg-blue-600 text-white text-sm font-semibold py-2 px-4 rounded-md flex items-center justify-center space-x-2 hover:bg-blue-700 transition"
+                            className="w-full bg-gray-800 text-white text-sm font-semibold py-2 px-4 rounded-md flex items-center justify-center space-x-2 hover:bg-blue-700 transition"
                           >
                             <span>View Project</span>
                             <ArrowOutward fontSize="small" />
@@ -493,7 +760,7 @@ function App() {
                             href={project.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="w-full bg-blue-600 text-white text-sm font-semibold py-2 px-4 rounded-md flex items-center justify-center space-x-2 hover:bg-blue-700 transition"
+                            className="w-full bg-gray-800 text-white text-sm font-semibold py-2 px-4 rounded-md flex items-center justify-center space-x-2 hover:bg-blue-700 transition"
                           >
                             <span>View Project</span>
                             <ArrowOutward fontSize="small" />
@@ -508,6 +775,18 @@ function App() {
                           description: "This project evaluates the effectiveness of 3 lightweight CNN models in detecting pneumonia in chest X-ray images, considering both performance & computational efficiency. The images are categorized into three classes: Bacterial Pneumonia, Viral Pneumonia, or Normal.",
                           link: "https://github.com/m3mentomor1/Pneumonia_Detection_with_Lightweight-CNN-Models",
                           image: "/Card-Preview-Images/Pneumonia-Screenshot.png",
+                        },
+                        {
+                          header: "Flower Image Classification with InceptionV3",
+                          description: "This is a deep learning project for flower image classification using the InceptionV3 CNN architecture. The project leverages transfer learning on the InceptionV3 pre-trained model, fine-tuning it on a specific dataset of flower images.",
+                          link: "https://github.com/m3mentomor1/Flower-Image-Classification-with-InceptionV3",
+                          image: "/Card-Preview-Images/Flower-Screenshot.jpg",
+                        },
+                        {
+                          header: "Breast Cancer Image Classification with DenseNet121",
+                          description: "This is a deep learning project for classifying breast ultrasound images into three categories: benign, malignant, or normal, thus determining the presence of breast cancer.",
+                          link: "https://github.com/m3mentomor1/Breast-Cancer-Image-Classification-with-DenseNet121",
+                          image: "/Card-Preview-Images/BreastCancer-Screenshot.png",
                         },
                         {
                           header: "Raised Finger Counter using MediaPipe",
@@ -539,6 +818,18 @@ function App() {
                           link: "https://github.com/m3mentomor1/Sentiment_Analyzer_using_VADER",
                           image: "/Card-Preview-Images/Sentiment-Screenshot.png",
                         },
+                        {
+                          header: "Text Summarizer using spaCy",
+                          description: "An extractive text summarization tool using the SpaCy NLP library. This project processes input text to identify the most important sentences based on word frequency analysis, providing a concise summary in just a few steps.",
+                          link: "https://github.com/m3mentomor1/Text_Summarizer_using_spaCy",
+                          image: "/Card-Preview-Images/TextSummarize-Screenshot.png",
+                        },
+                        {
+                          header: "Text-to-Speech Coverter using gTTS",
+                          description: "This is a simple text-to-speech program that utilizes the gTTS (Google Text-to-Speech) library to convert any text input into spoken language.",
+                          link: "https://github.com/m3mentomor1/Text-to-Speech_Coverter_Using_gTTS",
+                          image: "/Card-Preview-Images/GTTS-Screenshot.jpeg",
+                        },
                       ].map((project, index) => (
                         <div
                           key={index}
@@ -567,7 +858,7 @@ function App() {
                             href={project.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="w-full bg-blue-600 text-white text-sm font-semibold py-2 px-4 rounded-md flex items-center justify-center space-x-2 hover:bg-blue-700 transition"
+                            className="w-full bg-gray-800 text-white text-sm font-semibold py-2 px-4 rounded-md flex items-center justify-center space-x-2 hover:bg-blue-700 transition"
                           >
                             <span>View Project</span>
                             <ArrowOutward fontSize="small" />
@@ -578,22 +869,28 @@ function App() {
                     {category === "Data Projects" &&
                       [
                         {
-                          header: "Data Dashboard",
-                          description: "Built an interactive dashboard for data visualization and analysis.",
-                          link: "https://example.com/data-dashboard",
-                          image: "/images/data-dashboard.png",
-                        },
-                        {
                           header: "Near-Earth Object Data Retrieval & Visualization",
                           description: "Visualizing Near-Earth Object (NEO) data from NASA's JPL API, showcasing their close-approach distances and trajectories using Matplotlib.",
                           link: "https://github.com/m3mentomor1/Near-Earth_Object_Data_Retrieval_and_Visualization",
                           image: "/Card-Preview-Images/NEO-Data-Screenshot1.gif",
                         },
                         {
-                          header: "Recommendation System",
-                          description: "Created a recommendation system for an e-commerce platform using collaborative filtering.",
-                          link: "https://example.com/recommendation-system",
-                          image: "/images/recommendation-system.png",
+                          header: "BBC News Headline Scraper",
+                          description: "A simple web scraper that uses the Beautiful Soup library to retrieve the latest news headlines from the BBC News website and then saves the retrieved data to a CSV file for later use.",
+                          link: "https://github.com/m3mentomor1/BBC_News_Headline_Scraper",
+                          image: "/Card-Preview-Images/BBCWebScraper-Screenshot.png",
+                        },
+                        {
+                          header: "Relational Database for a Hotel Room Booking System",
+                          description: "A PostgreSQL-based relational database for managing hotel room booking operations. The database includes essential entities such as customers, rooms, bookings, and payments.",
+                          link: "https://github.com/m3mentomor1/Relational-DB_for-Hotel-Room-Booking",
+                          image: "/Card-Preview-Images/HotelBooking-ERD.png",
+                        },
+                        {
+                          header: "Relational Database for a Note Taking App",
+                          description: "A SQLite-based local relational database for managing data operations on note taking mobile app. The database includes essential entities such as notes, tags, and note tags.",
+                          link: "https://github.com/m3mentomor1/Relational-DB_for-Note-Taking-App",
+                          image: "/Card-Preview-Images/NoteTaking-ERD.png",
                         },
                       ].map((project, index) => (
                         <div
@@ -623,7 +920,7 @@ function App() {
                             href={project.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="w-full bg-blue-600 text-white text-sm font-semibold py-2 px-4 rounded-md flex items-center justify-center space-x-2 hover:bg-blue-700 transition"
+                            className="w-full bg-gray-800 text-white text-sm font-semibold py-2 px-4 rounded-md flex items-center justify-center space-x-2 hover:bg-blue-700 transition"
                           >
                             <span>View Project</span>
                             <ArrowOutward fontSize="small" />
@@ -640,16 +937,16 @@ function App() {
                           image: "/images/open-source.png",
                         },
                         {
-                          header: "Game Development",
-                          description: "Created a 2D platformer game using Unity and C#.",
-                          link: "https://example.com/game-development",
+                          header: "Pattern-Based File Remover",
+                          description: "This is a simple pattern-based file remover that provides an efficient way to clean up files in a specified directory based on a user-defined naming pattern.",
+                          link: "https://github.com/m3mentomor1/Pattern-Based-File-Remover",
                           image: "/images/game-development.png",
                         },
                         {
-                          header: "Automation Scripts",
-                          description: "Developed automation scripts to streamline repetitive tasks using Python.",
-                          link: "https://example.com/automation-scripts",
-                          image: "/images/automation-scripts.png",
+                          header: "Image File Folder Splitter",
+                          description: "Allows users to split a folder containing image files into two separate folders by moving half of the images to a destination folder.",
+                          link: "https://github.com/m3mentomor1/Image-Folder-Splitter",
+                          image: "/Card-Preview-Images/File-Screenshot.png",
                         },
                       ].map((project, index) => (
                         <div
@@ -679,7 +976,7 @@ function App() {
                             href={project.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="w-full bg-blue-600 text-white text-sm font-semibold py-2 px-4 rounded-md flex items-center justify-center space-x-2 hover:bg-blue-700 transition"
+                            className="w-full bg-gray-800 text-white text-sm font-semibold py-2 px-4 rounded-md flex items-center justify-center space-x-2 hover:bg-blue-700 transition"
                           >
                             <span>View Project</span>
                             <ArrowOutward fontSize="small" />
