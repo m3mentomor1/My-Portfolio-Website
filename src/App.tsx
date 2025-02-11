@@ -560,7 +560,8 @@ function App() {
                     className="w-8 h-8 md:w-10 md:h-10 hover:scale-110 transition-transform"
                   />
                 </a>
-                {/* Dribbble Button */}
+
+                {/* Behance Button */}
                 <a
                   href="https://www.behance.net/shainsahagun"
                   target="_blank"
