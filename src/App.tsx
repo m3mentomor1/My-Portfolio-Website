@@ -543,7 +543,7 @@ function App() {
                   rel="noopener noreferrer"
                 >
                   <img
-                    src="/images/LinkedIn-icon-black.png"
+                    src="${process.env.PUBLIC_URL}/images/LinkedIn-icon-black.png"
                     alt="LinkedIn"
                     className="w-8 h-8 md:w-10 md:h-10 hover:scale-110 transition-transform"
                   />
@@ -555,7 +555,7 @@ function App() {
                   rel="noopener noreferrer"
                 >
                   <img
-                    src="/images/GitHub-icon-black.png"
+                    src="${process.env.PUBLIC_URL}/images/GitHub-icon-black.png"
                     alt="GitHub"
                     className="w-8 h-8 md:w-10 md:h-10 hover:scale-110 transition-transform"
                   />
@@ -567,7 +567,7 @@ function App() {
                   rel="noopener noreferrer"
                 >
                   <img
-                    src="/images/Behance.png"
+                    src="${process.env.PUBLIC_URL}/images/Behance.png"
                     alt="Behance"
                     className="w-8 h-8 md:w-10 md:h-10 hover:scale-110 transition-transform"
                   />
@@ -599,7 +599,7 @@ function App() {
 
           {/* Image */}
           <img
-            src="/images/2x2.png"
+            src="${process.env.PUBLIC_URL}/images/2x2.png"
             alt="About"
             className="absolute bottom-0 right-2 md:right-auto md:left-1/2 md:translate-x-[-60%] w-[18rem] md:w-[48rem] z-0"
           />
