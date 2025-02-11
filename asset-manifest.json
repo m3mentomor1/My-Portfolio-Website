@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/shain-sahagun/static/css/main.f2486bfc.css",
-    "main.js": "/shain-sahagun/static/js/main.2e492fdb.js",
-    "index.html": "/shain-sahagun/index.html",
-    "main.f2486bfc.css.map": "/shain-sahagun/static/css/main.f2486bfc.css.map",
-    "main.2e492fdb.js.map": "/shain-sahagun/static/js/main.2e492fdb.js.map"
+    "main.css": "/my-portfolio-website/static/css/main.f2486bfc.css",
+    "main.js": "/my-portfolio-website/static/js/main.2e492fdb.js",
+    "index.html": "/my-portfolio-website/index.html",
+    "main.f2486bfc.css.map": "/my-portfolio-website/static/css/main.f2486bfc.css.map",
+    "main.2e492fdb.js.map": "/my-portfolio-website/static/js/main.2e492fdb.js.map"
   },
   "entrypoints": [
     "static/css/main.f2486bfc.css",
