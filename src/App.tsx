@@ -958,7 +958,7 @@ function App() {
                           <div className="w-full h-52 overflow-hidden">
                             <img
                               src={project.image}
-                              alt={`${project.header} Preview`}
+                              alt={`${project.header}`}
                               className="w-full h-full object-cover"
                             />
                           </div>
@@ -1016,7 +1016,7 @@ function App() {
                           <div className="w-full h-52 overflow-hidden">
                             <img
                               src={project.image}
-                              alt={`${project.header} Preview`}
+                              alt={`${project.header}`}
                               className="w-full h-full object-cover"
                             />
                           </div>
@@ -1074,7 +1074,7 @@ function App() {
                           <div className="w-full h-52 overflow-hidden">
                             <img
                               src={project.image}
-                              alt={`${project.header} Preview`}
+                              alt={`${project.header}`}
                               className="w-full h-full object-cover"
                             />
                           </div>
@@ -1174,7 +1174,7 @@ function App() {
                           <div className="w-full h-52 overflow-hidden">
                             <img
                               src={project.image}
-                              alt={`${project.header} Preview`}
+                              alt={`${project.header}`}
                               className="w-full h-full object-cover"
                             />
                           </div>
@@ -1238,7 +1238,7 @@ function App() {
                           <div className="w-full h-52 overflow-hidden">
                             <img
                               src={project.image}
-                              alt={`${project.header} Preview`}
+                              alt={`${project.header}`}
                               className="w-full h-full object-cover"
                             />
                           </div>
@@ -1296,7 +1296,7 @@ function App() {
                           <div className="w-full h-52 overflow-hidden">
                             <img
                               src={project.image}
-                              alt={`${project.header} Preview`}
+                              alt={`${project.header}`}
                               className="w-full h-full object-cover"
                             />
                           </div>
@@ -1432,7 +1432,7 @@ function App() {
                     >
                       <img
                         src={image}
-                        alt={`Competition Image ${index + 1}`}
+                        alt={`${index + 1}`}
                         className="object-cover w-full h-full"
                       />
                     </div>
@@ -1448,7 +1448,7 @@ function App() {
                       >
                         <img
                           src={image}
-                          alt={`Competition Image ${index + 2}`}
+                          alt={`${index + 2}`}
                           className="object-cover w-full h-full"
                         />
                       </div>
@@ -1462,7 +1462,7 @@ function App() {
                       >
                         <img
                           src={image}
-                          alt={`Competition Image ${index + 3}`}
+                          alt={`${index + 3}`}
                           className="object-cover w-full h-full"
                         />
                         {/* Overlay for +X if there are more images */}
