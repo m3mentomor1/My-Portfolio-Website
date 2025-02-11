@@ -753,7 +753,7 @@ function App() {
                           <div className="grid grid-cols-4 gap-4">
                             {(category === "Frontend" && "Backend"
                               ? [
-                                  { name: "TypeScript", image: "/Stack-Images/TypeScript.png" },
+                                  { name: "TypeScript", image: "/Stack-Images/TypeScript_Logo.png" },
                                   { name: "HTML", image: "/Stack-Images/HTML.png" },
                                   { name: "CSS", image: "/Stack-Images/CSS.png" },
                                   { name: "React", image: "/Stack-Images/React.png" },                          
@@ -789,7 +789,7 @@ function App() {
                           <div className="grid grid-cols-4 gap-4">
                             {(category === "Frontend" && "Backend"
                               ? [
-                                  { name: "TypeScript", image: "/Stack-Images/TypeScript.png" },
+                                  { name: "TypeScript", image: "/Stack-Images/TypeScript_Logo.png" },
                                   { name: "React Native", image: "/Stack-Images/ReactNative.png" },                         
                                   { name: "Expo", image: "/Stack-Images/Expo.png" },
                                 ]
