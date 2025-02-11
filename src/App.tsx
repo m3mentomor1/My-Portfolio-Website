@@ -720,8 +720,6 @@ function App() {
               {
                 category: "Other Tools",
                 items: [
-                  { name: "Git", image: "/Stack-Images/Git.png" },
-                  { name: "GitHub", image: "/Stack-Images/Github.png" },
                   { name: "Postman", image: "/Stack-Images/Postman.png" },
                   { name: "Azure Data Studio", image: "/Stack-Images/AzureDataStudio.png" },
                 ],
