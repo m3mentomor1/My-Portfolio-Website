@@ -789,7 +789,7 @@ function App() {
                           <div className="grid grid-cols-4 gap-4">
                             {(category === "Frontend" && "Backend"
                               ? [
-                                  { name: "TypeScript", image: "/Stack-Images/TypeScript_Logo.png" },
+                                  { name: "TypeScript", image: "/Stack-Images/Typescript_Logo.png" },
                                   { name: "React Native", image: "/Stack-Images/ReactNative.png" },                         
                                   { name: "Expo", image: "/Stack-Images/Expo.png" },
                                 ]
