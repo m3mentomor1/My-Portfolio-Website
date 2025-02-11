@@ -568,7 +568,7 @@ function App() {
                 >
                   <img
                     src="/images/Behance.png"
-                    alt="Dribbble"
+                    alt="Behance"
                     className="w-8 h-8 md:w-10 md:h-10 hover:scale-110 transition-transform"
                   />
                 </a>
@@ -600,7 +600,7 @@ function App() {
           {/* Image */}
           <img
             src="/images/2x2.png"
-            alt="About Section"
+            alt="About"
             className="absolute bottom-0 right-2 md:right-auto md:left-1/2 md:translate-x-[-60%] w-[18rem] md:w-[48rem] z-0"
           />
 
