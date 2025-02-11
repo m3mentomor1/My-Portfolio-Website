@@ -773,7 +773,7 @@ function App() {
                               <div key={tool.name} className="flex flex-col items-center">
                                 <div className="w-20 h-20 flex items-center justify-center overflow-hidden">
                                   <img
-                                    src={tool.image}
+                                    src={`${process.env.PUBLIC_URL}${tool.image}`}
                                     alt={tool.name}
                                     className="w-11 h-11 object-contain"
                                   />
@@ -807,7 +807,7 @@ function App() {
                               <div key={tool.name} className="flex flex-col items-center">
                                 <div className="w-20 h-20 flex items-center justify-center overflow-hidden">
                                   <img
-                                    src={tool.image}
+                                    src={`${process.env.PUBLIC_URL}${tool.image}`}
                                     alt={tool.name}
                                     className="w-11 h-11 object-contain"
                                   />
@@ -846,7 +846,7 @@ function App() {
                             <div key={tool.name} className="flex flex-col items-center">
                               <div className="w-20 h-20 flex items-center justify-center overflow-hidden">
                                 <img
-                                  src={tool.image}
+                                  src={`${process.env.PUBLIC_URL}${tool.image}`}
                                   alt={tool.name}
                                   className="w-11 h-11 object-contain"
                                 />
@@ -867,7 +867,7 @@ function App() {
                                 <div key={plugin.name} className="flex flex-col items-center">
                                   <div className="w-20 h-20 flex items-center justify-center overflow-hidden">
                                     <img
-                                      src={plugin.image}
+                                      src={`${process.env.PUBLIC_URL}${plugin.image}`}
                                       alt={plugin.name}
                                       className="w-11 h-11 object-contain"
                                     />
@@ -957,7 +957,7 @@ function App() {
                           {/* Image Placeholder */}
                           <div className="w-full h-52 overflow-hidden">
                             <img
-                              src={project.image}
+                              src={`${process.env.PUBLIC_URL}${project.image}`}
                               alt={`${project.header}`}
                               className="w-full h-full object-cover"
                             />
@@ -1015,7 +1015,7 @@ function App() {
                           {/* Image Placeholder */}
                           <div className="w-full h-52 overflow-hidden">
                             <img
-                              src={project.image}
+                              src={`${process.env.PUBLIC_URL}${project.image}`}
                               alt={`${project.header}`}
                               className="w-full h-full object-cover"
                             />
@@ -1073,7 +1073,7 @@ function App() {
                           {/* Image Placeholder */}
                           <div className="w-full h-52 overflow-hidden">
                             <img
-                              src={project.image}
+                              src={`${process.env.PUBLIC_URL}${project.image}`}
                               alt={`${project.header}`}
                               className="w-full h-full object-cover"
                             />
@@ -1173,7 +1173,7 @@ function App() {
                           {/* Image Placeholder */}
                           <div className="w-full h-52 overflow-hidden">
                             <img
-                              src={project.image}
+                              src={`${process.env.PUBLIC_URL}${project.image}`}
                               alt={`${project.header}`}
                               className="w-full h-full object-cover"
                             />
@@ -1237,7 +1237,7 @@ function App() {
                           {/* Image Placeholder */}
                           <div className="w-full h-52 overflow-hidden">
                             <img
-                              src={project.image}
+                              src={`${process.env.PUBLIC_URL}${project.image}`}
                               alt={`${project.header}`}
                               className="w-full h-full object-cover"
                             />
@@ -1295,7 +1295,7 @@ function App() {
                           {/* Image Placeholder */}
                           <div className="w-full h-52 overflow-hidden">
                             <img
-                              src={project.image}
+                              src={`${process.env.PUBLIC_URL}${project.image}`}
                               alt={`${project.header}`}
                               className="w-full h-full object-cover"
                             />
@@ -1383,7 +1383,7 @@ function App() {
     >
       {/* Image Container */}
       <div className="w-[280px] h-[180px] bg-gray-200 rounded-lg mb-4 overflow-hidden flex justify-center items-center">
-        <img src={cert.image} alt={cert.name} className="w-[280px] h-[180px] object-contain" />
+        <img src={`${process.env.PUBLIC_URL}${cert.image}`} alt={cert.name} className="w-[280px] h-[180px] object-contain" />
       </div>
 
       {/* Text Container */}
@@ -1431,7 +1431,7 @@ function App() {
                       className="col-span-2 w-full h-[196px] overflow-hidden"
                     >
                       <img
-                        src={image}
+                        src={`${process.env.PUBLIC_URL}${image}`}
                         alt={`${index + 1}`}
                         className="object-cover w-full h-full"
                       />
@@ -1447,7 +1447,7 @@ function App() {
                         className="relative w-full h-24 overflow-hidden"
                       >
                         <img
-                          src={image}
+                          src={`${process.env.PUBLIC_URL}${image}`}
                           alt={`${index + 2}`}
                           className="object-cover w-full h-full"
                         />
@@ -1461,7 +1461,7 @@ function App() {
                         className="relative w-full h-24 overflow-hidden"
                       >
                         <img
-                          src={image}
+                          src={`${process.env.PUBLIC_URL}${image}`}
                           alt={`${index + 3}`}
                           className="object-cover w-full h-full"
                         />
