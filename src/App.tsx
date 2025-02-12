@@ -1635,7 +1635,7 @@ function App() {
                 >
                   <img
                     src={`${process.env.PUBLIC_URL}${data.logo}`}
-                    alt="Leadership Logo"
+                    alt="Leadership"
                     className="w-[100px] h-[100px] object-contain"
                   />
                   <h3 className="text-lg font-semibold text-gray-800 w-full">
@@ -1654,14 +1654,14 @@ function App() {
                   <div className="w-full h-full">
                     <img
                       src={`${process.env.PUBLIC_URL}${data.images[0]}`}
-                      alt="Image 1"
+                      alt="Image"
                       className="w-full h-full object-cover"
                     />
                   </div>
                   <div className="w-full h-full">
                     <img
                       src={`${process.env.PUBLIC_URL}${data.images[1]}`}
-                      alt="Image 2"
+                      alt="Image"
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -1670,7 +1670,7 @@ function App() {
                   <div className="col-span-2 w-full h-full">
                     <img
                       src={`${process.env.PUBLIC_URL}${data.images[2]}`}
-                      alt="Image 3"
+                      alt="Image"
                       className="w-full h-full object-cover"
                     />
                   </div>
