@@ -1654,14 +1654,14 @@ function App() {
                   <div className="w-full h-full">
                     <img
                       src={`${process.env.PUBLIC_URL}${data.images[0]}`}
-                      alt="Image"
+                      alt="li1"
                       className="w-full h-full object-cover"
                     />
                   </div>
                   <div className="w-full h-full">
                     <img
                       src={`${process.env.PUBLIC_URL}${data.images[1]}`}
-                      alt="Image"
+                      alt="li2"
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -1670,7 +1670,7 @@ function App() {
                   <div className="col-span-2 w-full h-full">
                     <img
                       src={`${process.env.PUBLIC_URL}${data.images[2]}`}
-                      alt="Image"
+                      alt="li3"
                       className="w-full h-full object-cover"
                     />
                   </div>
