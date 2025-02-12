@@ -1634,7 +1634,7 @@ function App() {
                   }} // Gradient for Campus DEVCON, Solid for Others
                 >
                   <img
-                    src={data.logo}
+                    src={`${process.env.PUBLIC_URL}${data.logo}`}
                     alt="Leadership Logo"
                     className="w-[100px] h-[100px] object-contain"
                   />
@@ -1653,14 +1653,14 @@ function App() {
                   {/* First two images take equal space on top */}
                   <div className="w-full h-full">
                     <img
-                      src={data.images[0]}
+                      src={`${process.env.PUBLIC_URL}${data.images[0]}`}
                       alt="Image 1"
                       className="w-full h-full object-cover"
                     />
                   </div>
                   <div className="w-full h-full">
                     <img
-                      src={data.images[1]}
+                      src={`${process.env.PUBLIC_URL}${data.images[1]}`}
                       alt="Image 2"
                       className="w-full h-full object-cover"
                     />
@@ -1669,7 +1669,7 @@ function App() {
                   {/* Bottom image spans full width */}
                   <div className="col-span-2 w-full h-full">
                     <img
-                      src={data.images[2]}
+                      src={`${process.env.PUBLIC_URL}${data.images[2]}`}
                       alt="Image 3"
                       className="w-full h-full object-cover"
                     />
