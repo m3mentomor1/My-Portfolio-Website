@@ -8,6 +8,74 @@ function App() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [stackActiveDropdown, setStackActiveDropdown] = useState<string | null>(null);
   const [currentCompeIndex, setCurrentCompeIndex] = useState(0);
+  const [currentL, setCurrentL] = useState(0);
+
+  const leadershipData = [
+    {
+      logo: "/Leadership/Campus DEVCON.png",
+      title: "Campus DEVCON",
+      institution: "DEVCON Philippines",
+      position: "Campus DEVCON Ambassador",
+      duration: "January 2024 - December 2024",
+      images: [
+        "/Leadership/CDA_TN.jpeg",
+        "/Leadership/.png",
+        "/mnt/data/image3.png",
+      ],
+      bgColor: "linear-gradient(135deg, #fffa69, #ffa245, #bb88f7, #5cff6c)", // Yellow, Orange, Purple, Green Gradient
+      isGradient: true, // Indicate this card uses a gradient
+    },
+    {
+      logo: "/Leadership/MLSA_Logo.png",
+      title: "Microsoft Learn Student Ambassadors",
+      institution: "Technological Institute of the Philippines - Quezon City",
+      position: "Microsoft Learn Student Ambassador (Alpha)",
+      duration: "January 2024 - October 2024",
+      images: [
+        "/Leadership/MLSA_Cert.png",
+        "/mnt/data/image2.png",
+        "/mnt/data/image3.png",
+      ],
+      bgColor: "#D6EAF8", // Light Blue
+      isGradient: false,
+    },
+    {
+      logo: "/Leadership/MSC_Logo.png",
+      title: "Microsoft Student Community",
+      institution: "Technological Institute of the Philippines - Quezon City",
+      position: "Founder/President, Creatives Committee Head",
+      duration: "August 2023 - May 2024",
+      images: [
+        "/Leadership/MSC-RSO_Cert.jpeg",
+        "/Leadership/MSC-SLF.png",
+        "/Leadership/MSC-SLO.png",
+      ],
+      bgColor: "#FAD7A0", // Light Orange
+      isGradient: false,
+    },
+    {
+      logo: "/Leadership/MSC_TIPM.png",
+      title: "Microsoft Student Community",
+      institution: "Technological Institute of the Philippines - Manila",
+      position: "Research Committee Member",
+      duration: "November 2022 - May 2023",
+      images: [
+        "/mnt/data/image1.png",
+        "/mnt/data/image2.png",
+        "/mnt/data/image3.png",
+      ],
+      bgColor: "#FAD7A0", // Light Orange
+      isGradient: false,
+    },
+  ];
+
+  const handleNextL = () => {
+    setCurrentL((prev) => (prev + 1) % leadershipData.length);
+  };
+
+  const handlePrevL = () => {
+    setCurrentL((prev) => (prev - 1 + leadershipData.length) % leadershipData.length);
+  };
 
   const sections = [
     {
@@ -141,7 +209,7 @@ function App() {
           name: "GAWAD T.I.P. Award",
           issuer: "Technological Institute of the Philippines - Quezon City",
           date: "May 2024",
-          image: "/Certifications/Python Essentials 2.png",
+          image: "/Certifications/GAWAD.jpeg",
         },
         {
           name: "Dean's Lister (1st-Year, 2nd Semester)",
@@ -422,7 +490,7 @@ function App() {
                   href="#leadership"
                   className="block py-2 text-sm text-gray-600 hover:text-gray-800"
                 >
-                  Leadership Experience
+                  Leadership Background
                 </a>
                 <a
                   href="#volunteering"
@@ -671,7 +739,7 @@ function App() {
           </h2>
 
           {/* Dropdown Menus */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 mb-[150px] w-full max-w-[1120px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6 mb-[150px] w-full max-w-[1120px]">
             {[
               {
                 category: "UI/UX",
@@ -893,7 +961,7 @@ function App() {
           id="projects"
           className="min-h-[580px] md:min-h-[calc(100vh-5rem)] bg-[#faf9f6] flex flex-col items-center justify-center"
         >
-          <h2 className="text-xl md:text-3xl font-bold text-gray-800 mt-[50px] mb-8">
+          <h2 className="text-xl md:text-3xl font-bold text-gray-800 mt-[50px] mb-6">
             Projects
           </h2>
           {/* Add container with same limits as navbar */}
@@ -1505,12 +1573,121 @@ function App() {
           id="leadership"
           className="h-[300px] md:min-h-[calc(100vh-5rem)] bg-[#f9f9f6] flex flex-col items-center justify-center"
         >
-          <h2 className="text-xl md:text-3xl font-bold text-gray-800">
-            Leadership Experience
+          <h2 className="text-xl md:text-3xl font-bold text-gray-800 mb-6">
+            Leadership Background
           </h2>
-          <p className="text-sm md:text-base text-gray-600 mt-4 max-w-3xl text-center">
-            Highlight your leadership roles and accomplishments here.
-          </p>
+
+          <div className="relative w-full max-w-6xl h-[500px] flex items-center justify-center">
+        {/* Navigation Buttons */}
+        <button
+          className="absolute left-4 z-10 bg-gray-800 text-white p-4 rounded-full shadow-lg hover:bg-gray-600 transition"
+          onClick={handlePrevL}
+        >
+          <NavigateBefore fontSize="large" />
+        </button>
+
+        {/* Carousel Cards */}
+        <div className="relative w-full flex justify-center items-center">
+          {leadershipData.map((data, index) => {
+            const offset = (index - currentL + leadershipData.length) % leadershipData.length;
+
+            let scale, opacity, translateX, display;
+            if (offset === 0) {
+              scale = 1;
+              opacity = 1;
+              translateX = 0;
+              display = "flex";
+            } else if (offset === 1) {
+              scale = 0.9;
+              opacity = 0.7;
+              translateX = 150;
+              display = "flex";
+            } else if (offset === -1 || offset === leadershipData.length - 1) {
+              scale = 0.9;
+              opacity = 0.7;
+              translateX = -150;
+              display = "flex";
+            } else {
+              display = "none";
+            }
+
+            return (
+              <div
+                key={index}
+                className="absolute w-[700px] h-[350px] bg-white shadow-lg rounded-lg flex transition-all duration-500 overflow-hidden"
+                style={{
+                  display: display,
+                  transform: `translateX(${translateX}px) scale(${scale})`,
+                  opacity: opacity,
+                  zIndex: offset === 0 ? 10 : 5 - Math.abs(offset),
+                  boxShadow:
+                    offset === 0
+                      ? "0px 10px 30px rgba(0,0,0,0.2)"
+                      : "0px 5px 15px rgba(0,0,0,0.1)",
+                }}
+              >
+                {/* Left Side - Text & Logo (Custom Background Per Card) */}
+                <div
+                  className="w-2/5 flex flex-col justify-center items-center p-6 text-center"
+                  style={{
+                    background: data.isGradient ? data.bgColor : data.bgColor,
+                  }} // Gradient for Campus DEVCON, Solid for Others
+                >
+                  <img
+                    src={data.logo}
+                    alt="Leadership Logo"
+                    className="w-[100px] h-[100px] object-contain"
+                  />
+                  <h3 className="text-lg font-semibold text-gray-800 w-full">
+                    {data.title}
+                  </h3>
+                  <p className="text-sm text-gray-600 w-full">{data.institution}</p>
+                  <p className="text-gray-700 text-sm font-semibold w-full">
+                    {data.position}
+                  </p>
+                  <p className="text-gray-600 text-sm w-full">{data.duration}</p>
+                </div>
+
+                {/* Right Side - Image Grid (Fully Occupying Space, No Borders) */}
+                <div className="w-3/5 grid grid-rows-2 grid-cols-2 h-full">
+                  {/* First two images take equal space on top */}
+                  <div className="w-full h-full">
+                    <img
+                      src={data.images[0]}
+                      alt="Image 1"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="w-full h-full">
+                    <img
+                      src={data.images[1]}
+                      alt="Image 2"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+
+                  {/* Bottom image spans full width */}
+                  <div className="col-span-2 w-full h-full">
+                    <img
+                      src={data.images[2]}
+                      alt="Image 3"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Navigation Buttons */}
+        <button
+          className="absolute right-4 z-10 bg-gray-800 text-white p-4 rounded-full shadow-lg hover:bg-gray-600 transition"
+          onClick={handleNextL}
+        >
+          <NavigateNext fontSize="large" />
+        </button>
+      </div>
         </section>
 
         {/* Volunteering Section */}
