@@ -9,6 +9,7 @@ function App() {
   const [stackActiveDropdown, setStackActiveDropdown] = useState<string | null>(null);
   const [currentCompeIndex, setCurrentCompeIndex] = useState(0);
   const [currentL, setCurrentL] = useState(0);
+  const [currentEvent, setCurrentEvent] = useState(0);
 
   const leadershipData = [
     {
@@ -66,6 +67,60 @@ function App() {
       ],
       bgColor: "#FAD7A0", // Light Orange
       isGradient: false,
+    },
+  ];
+
+  const volunteeringData = [
+    {
+      eventName: "Building Bridges: Celebrating Student Leadership and Technical Excellence",
+      organizer: "Microsoft Student Community - T.I.P. Manila",
+      role: "Campus DEVCON Ambassador",
+      contributions: "Campus DEVCON Ambassador",
+      date: "January 2024 - December 2024",
+      images: [
+        "/Volunteering/CDA_TN.jpeg",
+        "/Volunteering/.png",
+        "/Volunteering/image3.png",
+        "/Volunteering/image3.png",
+      ],
+    },
+    {
+      eventName: "Building Bridges: Celebrating Student Leadership and Technical Excellence",
+      organizer: "Microsoft Student Community - T.I.P. Manila",
+      role: "Campus DEVCON Ambassador",
+      contributions: "Campus DEVCON Ambassador",
+      date: "January 2024 - December 2024",
+      images: [
+        "/Volunteering/CDA_TN.jpeg",
+        "/Volunteering/.png",
+        "/Volunteering/image3.png",
+        "/Volunteering/image3.png",
+      ],
+    },
+    {
+      eventName: "Building Bridges: Celebrating Student Leadership and Technical Excellence",
+      organizer: "Microsoft Student Community - T.I.P. Manila",
+      role: "Campus DEVCON Ambassador",
+      contributions: "Campus DEVCON Ambassador",
+      date: "January 2024 - December 2024",
+      images: [
+        "/Volunteering/CDA_TN.jpeg",
+        "/Volunteering/.png",
+        "/Volunteering/image3.png",
+        "/Volunteering/image3.png",
+      ],
+    },
+    {
+      eventName: "Building Bridges: Celebrating Student Leadership and Technical Excellence",
+      organizer: "Microsoft Student Community - T.I.P. Manila",
+      role: "Campus DEVCON Ambassador",
+      contributions: "Campus DEVCON Ambassador",
+      date: "January 2024 - December 2024",
+      images: [
+        "/Volunteering/CDA_TN.jpeg",
+        "/Volunteering/.png",
+        "/Volunteering/image3.png",
+      ],
     },
   ];
 
@@ -1698,9 +1753,117 @@ function App() {
           <h2 className="text-xl md:text-3xl font-bold text-gray-800">
             Volunteering
           </h2>
-          <p className="text-sm md:text-base text-gray-600 mt-4 max-w-3xl text-center">
-            Highlight your volunteering contributions here.
-          </p>
+          <div className="relative w-full max-w-6xl h-[500px] flex items-center justify-center">
+        {/* Navigation Buttons */}
+        <button
+          className="absolute left-4 z-10 bg-gray-800 text-white p-4 rounded-full shadow-lg hover:bg-gray-600 transition"
+          onClick={handlePrevL}
+        >
+          <NavigateBefore fontSize="large" />
+        </button>
+
+        {/* Carousel Cards */}
+        <div className="relative w-full flex justify-center items-center">
+          {leadershipData.map((data, index) => {
+            const offset = (index - currentL + leadershipData.length) % leadershipData.length;
+
+            let scale, opacity, translateX, display;
+            if (offset === 0) {
+              scale = 1;
+              opacity = 1;
+              translateX = 0;
+              display = "flex";
+            } else if (offset === 1) {
+              scale = 0.9;
+              opacity = 0.7;
+              translateX = 150;
+              display = "flex";
+            } else if (offset === -1 || offset === leadershipData.length - 1) {
+              scale = 0.9;
+              opacity = 0.7;
+              translateX = -150;
+              display = "flex";
+            } else {
+              display = "none";
+            }
+
+            return (
+              <div
+                key={index}
+                className="absolute w-[700px] h-[350px] bg-white shadow-lg rounded-lg flex transition-all duration-500 overflow-hidden"
+                style={{
+                  display: display,
+                  transform: `translateX(${translateX}px) scale(${scale})`,
+                  opacity: opacity,
+                  zIndex: offset === 0 ? 10 : 5 - Math.abs(offset),
+                  boxShadow:
+                    offset === 0
+                      ? "0px 10px 30px rgba(0,0,0,0.2)"
+                      : "0px 5px 15px rgba(0,0,0,0.1)",
+                }}
+              >
+                {/* Left Side - Text & Logo (Custom Background Per Card) */}
+                <div
+                  className="w-2/5 flex flex-col justify-center items-center p-6 text-center"
+                  style={{
+                    background: data.isGradient ? data.bgColor : data.bgColor,
+                  }} // Gradient for Campus DEVCON, Solid for Others
+                >
+                  <img
+                    src={`${process.env.PUBLIC_URL}${data.logo}`}
+                    alt="Leadership"
+                    className="w-[100px] h-[100px] object-contain"
+                  />
+                  <h3 className="text-lg font-semibold text-gray-800 w-full">
+                    {data.title}
+                  </h3>
+                  <p className="text-sm text-gray-600 w-full">{data.institution}</p>
+                  <p className="text-gray-700 text-sm font-semibold w-full">
+                    {data.position}
+                  </p>
+                  <p className="text-gray-600 text-sm w-full">{data.duration}</p>
+                </div>
+
+                {/* Right Side - Image Grid (Fully Occupying Space, No Borders) */}
+                <div className="w-3/5 grid grid-rows-2 grid-cols-2 h-full">
+                  {/* First two images take equal space on top */}
+                  <div className="w-full h-full">
+                    <img
+                      src={`${process.env.PUBLIC_URL}${data.images[0]}`}
+                      alt="li1"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="w-full h-full">
+                    <img
+                      src={`${process.env.PUBLIC_URL}${data.images[1]}`}
+                      alt="li2"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+
+                  {/* Bottom image spans full width */}
+                  <div className="col-span-2 w-full h-full">
+                    <img
+                      src={`${process.env.PUBLIC_URL}${data.images[2]}`}
+                      alt="li3"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Navigation Buttons */}
+        <button
+          className="absolute right-4 z-10 bg-gray-800 text-white p-4 rounded-full shadow-lg hover:bg-gray-600 transition"
+          onClick={handleNextL}
+        >
+          <NavigateNext fontSize="large" />
+        </button>
+      </div>
         </section>
 
         {/* Contact Section */}
