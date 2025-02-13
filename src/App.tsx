@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import React from "react";
 import { ExpandMore, ArrowOutward, ArrowForward, NavigateBefore, NavigateNext } from '@mui/icons-material'; // Import ExpandMore icon
 
 function App() {
@@ -72,54 +73,94 @@ function App() {
 
   const volunteeringData = [
     {
-      eventName: "Building Bridges: Celebrating Student Leadership and Technical Excellence",
-      organizer: "Microsoft Student Community - T.I.P. Manila",
-      role: "Campus DEVCON Ambassador",
+      eventName: "Campus DEVCON Summit 2024: Tech Nexus",
+      organizer: "Campus DEVCON Ambassadors",
+      location: "University of Batangas - Lipa Campus",
+      role: "Registration Team Member",
       contributions: "Campus DEVCON Ambassador",
-      date: "January 2024 - December 2024",
+      date: "December 7, 2024",
       images: [
+        "/Volunteering/CDS-ID.jpg",
         "/Volunteering/CDA_TN.jpeg",
-        "/Volunteering/.png",
-        "/Volunteering/image3.png",
-        "/Volunteering/image3.png",
+        "/Volunteering/CDS_AP.jpg",
+        "/Volunteering/CDS_ASP.jpg",
+        "/Volunteering/CDS_CP.jpg",
+      ],
+    },
+    {
+      eventName: "Cre-AI-tivity: AIdea-Driven Innovations in Tech and Play",
+      organizer: "Campus DEVCON Ambassadors • Microsoft Learn Student Ambassadors • T.I.P. QC Computer Engineering Department",
+      location: "Technological Institute of the Philippines (T.I.P.) - Quezon City",
+      role: "Core & Creatives Team Lead",
+      contributions: "Campus DEVCON Ambassador",
+      date: "October 4-5, 2024",
+      images: [
+        "/Volunteering/CAT-Start.jpg",
+        "/Volunteering/CAT-D1S1CP.jpg",
+        "/Volunteering/CAT-D1S2CP.jpg",
+        "/Volunteering/CAT-D2S1SP.jpg",
+        "/Volunteering/CAT-D2S2CP.jpg",
+      ],
+    },
+    {
+      eventName: "No-code AI: Automated Model Training Using Azure Machine Learning Studio",
+      organizer: "Microsoft Learn Student Ambassadors",
+      location: "Microsoft Teams",
+      role: "Organizer, Speaker",
+      contributions: "Organizer, Speaker",
+      date: "September 13, 2024",
+      images: [
+        "/Volunteering/NCAI-1.png",
+        "/Volunteering/NCAI-2.png",
+        "/Volunteering/NCAI-3.png",
+        "/Volunteering/NCAI-4.png",
+        "/Volunteering/NCAI-5.png",
+      ],
+    },
+    {
+      eventName: "General Assembly: Ignite Your Inner Curiosity!",
+      organizer: "Microsoft Student Community - T.I.P. QC",
+      location: "Microsoft Teams",
+      role: "Core Team Lead, Speaker",
+      contributions: "Organizer, Speaker",
+      date: "November 18, 2023",
+      images: [
+        "/Volunteering/MSCGA-1.png",
+        "/Volunteering/MSCGA-2.png",
+        "/Volunteering/MSCGA-3.png",
+        "/Volunteering/MSCGA-4.png",
+        "/Volunteering/MSCGA-5.png",
+      ],
+    },
+    {
+      eventName: "RETROTECH: Crack the Code, Seize the Flag!! (Capture The Flag 2023)",
+      organizer: "Microsoft Student Community - T.I.P. QC",
+      location: "Technological Institute of the Philippines (T.I.P.) - Quezon City",
+      role: "Game Master",
+      contributions: "Campus DEVCON Ambassador",
+      date: "November 17 & 25, 2023",
+      images: [
+        "/Volunteering/RT-1.png",
+        "/Volunteering/RT-2.png",
+        "/Volunteering/RT-3.png",
+        "/Volunteering/RT-4.png",
+        "/Volunteering/RT-5.png",
+        "/Volunteering/RT-6.png",
       ],
     },
     {
       eventName: "Building Bridges: Celebrating Student Leadership and Technical Excellence",
       organizer: "Microsoft Student Community - T.I.P. Manila",
-      role: "Campus DEVCON Ambassador",
-      contributions: "Campus DEVCON Ambassador",
-      date: "January 2024 - December 2024",
+      location: "Technological Institute of the Philippines (T.I.P.) - Manila",
+      role: "Technical Team Member",
+      contributions: "As a member of the technical team, I managed the coordination of visual aids, including PowerPoint slides and videos. Additionally, I was also one of the facilitators in its networking games.",
+      date: "Mar 25, 2023",
       images: [
-        "/Volunteering/CDA_TN.jpeg",
-        "/Volunteering/.png",
-        "/Volunteering/image3.png",
-        "/Volunteering/image3.png",
-      ],
-    },
-    {
-      eventName: "Building Bridges: Celebrating Student Leadership and Technical Excellence",
-      organizer: "Microsoft Student Community - T.I.P. Manila",
-      role: "Campus DEVCON Ambassador",
-      contributions: "Campus DEVCON Ambassador",
-      date: "January 2024 - December 2024",
-      images: [
-        "/Volunteering/CDA_TN.jpeg",
-        "/Volunteering/.png",
-        "/Volunteering/image3.png",
-        "/Volunteering/image3.png",
-      ],
-    },
-    {
-      eventName: "Building Bridges: Celebrating Student Leadership and Technical Excellence",
-      organizer: "Microsoft Student Community - T.I.P. Manila",
-      role: "Campus DEVCON Ambassador",
-      contributions: "Campus DEVCON Ambassador",
-      date: "January 2024 - December 2024",
-      images: [
-        "/Volunteering/CDA_TN.jpeg",
-        "/Volunteering/.png",
-        "/Volunteering/image3.png",
+        "/Volunteering/BB-ID.png",
+        "/Volunteering/BB-Start.jpg",
+        "/Volunteering/BB-Talk.jpg",
+        "/Volunteering/BB-Organizers.jpg",
+        "/Volunteering/BB-ComPic.jpg",
       ],
     },
   ];
@@ -130,6 +171,14 @@ function App() {
 
   const handlePrevL = () => {
     setCurrentL((prev) => (prev - 1 + leadershipData.length) % leadershipData.length);
+  };
+
+  const handleNextEvent = () => {
+    setCurrentEvent((prev) => (prev + 1) % volunteeringData.length);
+  };
+  
+  const handlePrevEvent = () => {
+    setCurrentEvent((prev) => (prev - 1 + volunteeringData.length) % volunteeringData.length);
   };
 
   const sections = [
@@ -742,7 +791,7 @@ function App() {
         {/* Education Section */}
         <section
         id="education"
-        className="h-[480px] md:min-h-[calc(100vh-5rem)] bg-[#faf9f6] flex flex-col items-center justify-center px-4 md:px-10"
+        className="h-[480px] md:min-h-[800px] bg-[#faf9f6] flex flex-col items-center justify-center px-4 md:px-10"
       >
         
         <div className="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -787,14 +836,14 @@ function App() {
         {/* Personal Stack Section */}
         <section
           id="stack"
-          className="min-h-[450px] md:min-h-[calc(100vh-5rem)] bg-[#faf9f6] flex flex-col items-center justify-center px-4 md:px-10"
+          className="min-h-[450px] md:min-h-[800px] bg-[#faf9f6] flex flex-col items-center justify-center px-4 md:px-10"
         >
-          <h2 className="text-xl md:text-3xl font-bold mt-[150px] text-gray-800">
+          <h2 className="text-xl md:text-3xl font-bold text-gray-800 mb-[60px]">
             Personal Stack
           </h2>
 
           {/* Dropdown Menus */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6 mb-[150px] w-full max-w-[1120px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-[150px] w-full max-w-[1120px]">
             {[
               {
                 category: "UI/UX",
@@ -1014,9 +1063,9 @@ function App() {
         {/* Projects Section */}
         <section
           id="projects"
-          className="min-h-[580px] md:min-h-[calc(100vh-5rem)] bg-[#faf9f6] flex flex-col items-center justify-center"
+          className="min-h-[580px] md:min-h-[800px] bg-[#faf9f6] flex flex-col items-center justify-center"
         >
-          <h2 className="text-xl md:text-3xl font-bold text-gray-800 mt-[50px] mb-6">
+          <h2 className="text-xl md:text-3xl font-bold text-gray-800 mb-[60px]">
             Projects
           </h2>
           {/* Add container with same limits as navbar */}
@@ -1453,8 +1502,8 @@ function App() {
           </div>
         </section>
 
-        <section id="licenses" className="min-h-screen md:min-h-[calc(100vh-5rem)] bg-[#faf9f6] flex flex-col items-center justify-center">
-          <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">
+        <section id="licenses" className="min-h-screen md:min-h-[800px] bg-[#faf9f6] flex flex-col items-center justify-center">
+          <h2 className="text-3xl font-bold text-gray-800 text-center mb-[60px]">
             Licenses, Certifications, & Awards
           </h2>
           <div className="flex space-x-6 mb-6 border-b text-md">
@@ -1528,10 +1577,10 @@ function App() {
         {/* Competitions Section */}
         <section
           id="competitions"
-          className="h-[500px] md:min-h-[calc(100vh-5rem)] bg-[#faf9f6] flex flex-col items-center justify-center"
+          className="h-[500px] md:min-h-[800px] bg-[#faf9f6] flex flex-col items-center justify-center"
         >
-          <h2 className="text-xl md:text-3xl font-bold text-gray-800">Competitions</h2>
-          <div className="mt-6 w-full max-w-5xl flex items-center">
+          <h2 className="text-xl md:text-3xl font-bold text-gray-800 mb-[60px]">Competitions</h2>
+          <div className="w-full max-w-5xl flex items-center">
             {/* Back Button */}
             <button
               className="text-gray-800 hover:text-gray-600"
@@ -1626,9 +1675,9 @@ function App() {
         {/* Leadership Experience Section */}
         <section
           id="leadership"
-          className="h-[300px] md:min-h-[calc(100vh-5rem)] bg-[#f9f9f6] flex flex-col items-center justify-center"
+          className="h-[300px] md:min-h-[800px] bg-[#f9f9f6] flex flex-col items-center justify-center"
         >
-          <h2 className="text-xl md:text-3xl font-bold text-gray-800 mb-6">
+          <h2 className="text-xl md:text-3xl font-bold text-gray-800">
             Leadership Background
           </h2>
 
@@ -1748,40 +1797,50 @@ function App() {
         {/* Volunteering Section */}
         <section
           id="volunteering"
-          className="h-[300px] md:min-h-[calc(100vh-5rem)] bg-[#faf9f6] flex flex-col items-center justify-center"
+          className="h-[300px] md:min-h-[800px] bg-[#faf9f6] flex flex-col items-center justify-center overflow-x-hidden"
         >
-          <h2 className="text-xl md:text-3xl font-bold text-gray-800">
+          <h2 className="text-xl md:text-3xl font-bold text-gray-800 mb-[60px]">
             Volunteering
           </h2>
           <div className="relative w-full max-w-6xl h-[500px] flex items-center justify-center">
         {/* Navigation Buttons */}
         <button
           className="absolute left-4 z-10 bg-gray-800 text-white p-4 rounded-full shadow-lg hover:bg-gray-600 transition"
-          onClick={handlePrevL}
+          onClick={handlePrevEvent}
         >
           <NavigateBefore fontSize="large" />
         </button>
 
         {/* Carousel Cards */}
         <div className="relative w-full flex justify-center items-center">
-          {leadershipData.map((data, index) => {
-            const offset = (index - currentL + leadershipData.length) % leadershipData.length;
+          {volunteeringData.map((data, index) => {
+            const offset = (index - currentEvent + volunteeringData.length) % volunteeringData.length;
 
             let scale, opacity, translateX, display;
             if (offset === 0) {
-              scale = 1;
+              scale = 0.95;
               opacity = 1;
               translateX = 0;
               display = "flex";
             } else if (offset === 1) {
-              scale = 0.9;
-              opacity = 0.7;
-              translateX = 150;
+              scale = 0.5;
+              opacity = 0.5;
+              translateX = 495;
               display = "flex";
-            } else if (offset === -1 || offset === leadershipData.length - 1) {
-              scale = 0.9;
-              opacity = 0.7;
-              translateX = -150;
+            } else if (offset === 2) {
+              scale = 0.5;
+              opacity = 0.5;
+              translateX = 844;
+              display = "flex";            
+            } else if (offset === -1 || offset === volunteeringData.length - 1) {
+              scale = 0.5;
+              opacity = 0.5;
+              translateX = -495;
+              display = "flex";
+            } else if (offset === -1 || offset === volunteeringData.length - 2) {
+              scale = 0.5;
+              opacity = 0.5;
+              translateX = -844;
               display = "flex";
             } else {
               display = "none";
@@ -1790,7 +1849,7 @@ function App() {
             return (
               <div
                 key={index}
-                className="absolute w-[700px] h-[350px] bg-white shadow-lg rounded-lg flex transition-all duration-500 overflow-hidden"
+                className="absolute w-[650px] h-[500px] bg-white shadow-lg rounded-lg flex transition-all duration-500 overflow-hidden"
                 style={{
                   display: display,
                   transform: `translateX(${translateX}px) scale(${scale})`,
@@ -1802,30 +1861,33 @@ function App() {
                       : "0px 5px 15px rgba(0,0,0,0.1)",
                 }}
               >
-                {/* Left Side - Text & Logo (Custom Background Per Card) */}
-                <div
-                  className="w-2/5 flex flex-col justify-center items-center p-6 text-center"
-                  style={{
-                    background: data.isGradient ? data.bgColor : data.bgColor,
-                  }} // Gradient for Campus DEVCON, Solid for Others
-                >
-                  <img
-                    src={`${process.env.PUBLIC_URL}${data.logo}`}
-                    alt="Leadership"
-                    className="w-[100px] h-[100px] object-contain"
-                  />
-                  <h3 className="text-lg font-semibold text-gray-800 w-full">
-                    {data.title}
-                  </h3>
-                  <p className="text-sm text-gray-600 w-full">{data.institution}</p>
-                  <p className="text-gray-700 text-sm font-semibold w-full">
-                    {data.position}
-                  </p>
-                  <p className="text-gray-600 text-sm w-full">{data.duration}</p>
-                </div>
 
-                {/* Right Side - Image Grid (Fully Occupying Space, No Borders) */}
-                <div className="w-3/5 grid grid-rows-2 grid-cols-2 h-full">
+
+              <div 
+                className="absolute w-[500px] inset-0 opacity-90 z-20"
+                style={{
+                  background: "linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0.9), rgba(0,0,0,0.8), rgba(0,0,0,0.7), rgba(0,0,0,0.6), rgba(0,0,0,0.5), rgba(0,0,0,0.4), rgba(0,0,0,0.3), rgba(0,0,0,0.2), rgba(0,0,0,0.1), rgba(0,0,0,0))",
+                }}
+              >
+                {/* Text Content Overlay */}
+                <div className="absolute left-6 w-[70%] h-full z-30 text-white flex flex-col justify-center">
+                  <p className="text-sm mb-5">{data.date}</p>
+                  <h3 className="text-lg font-semibold mb-5">{data.eventName}</h3>
+                  <p className="text-xs font-semibold">{data.organizer}</p>
+                  <p className="text-xs mb-5">📍 {data.location}</p>
+                  <p className="text-sm font-semibold">Role: <span className='text-sm font-normal'>{data.role}</span></p>                                {/* Clickable "Learn More" Button */}
+                  <button
+                    className="text-blue-300 underline text-sm font-semibold text-left hover:text-blue-100 transition"
+                    onClick={() => {}}
+                  >
+                    Learn More
+                  </button>
+                </div>
+              </div>
+
+                
+                {/* Image Grid (Fully Occupying Space, No Borders) */}
+                <div className="w-full grid grid-rows-2 grid-cols-3 h-full pointer-events-none">
                   {/* First two images take equal space on top */}
                   <div className="w-full h-full">
                     <img
@@ -1841,15 +1903,39 @@ function App() {
                       className="w-full h-full object-cover"
                     />
                   </div>
-
-                  {/* Bottom image spans full width */}
-                  <div className="col-span-2 w-full h-full">
+                  <div className="w-full h-full">
                     <img
                       src={`${process.env.PUBLIC_URL}${data.images[2]}`}
-                      alt="li3"
+                      alt="li2"
                       className="w-full h-full object-cover"
                     />
                   </div>
+
+                  {/* Bottom row: Two equal images, properly aligned */}
+                  <div className="col-span-3 w-full h-full grid grid-cols-2">
+                    <div className="w-full h-full flex items-center justify-center overflow-hidden">
+                      <img
+                        src={`${process.env.PUBLIC_URL}${data.images[3]}`}
+                        alt="li3"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+
+                    {/* Last image with +X overlay if there are more images */}
+                    <div className="w-full h-full flex items-center justify-center overflow-hidden relative">
+                      <img
+                        src={`${process.env.PUBLIC_URL}${data.images[4]}`}
+                        alt="li4"
+                        className="w-full h-full object-cover"
+                      />
+                      {data.images.length > 5 && (
+                        <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center text-white text-lg font-bold">
+                          +{data.images.length - 5}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
                 </div>
               </div>
             );
@@ -1859,7 +1945,7 @@ function App() {
         {/* Navigation Buttons */}
         <button
           className="absolute right-4 z-10 bg-gray-800 text-white p-4 rounded-full shadow-lg hover:bg-gray-600 transition"
-          onClick={handleNextL}
+          onClick={handleNextEvent}
         >
           <NavigateNext fontSize="large" />
         </button>
@@ -1869,14 +1955,11 @@ function App() {
         {/* Contact Section */}
         <section
           id="contact"
-          className="h-[300px] md:min-h-[calc(100vh-5rem)] bg-[#f9f9f6] flex flex-col items-center justify-center"
+          className="h-[300px] md:min-h-[800px] bg-[#f9f9f6] flex flex-col items-center justify-center"
         >
-          <h2 className="text-xl md:text-3xl font-bold text-gray-800">
+          <h2 className="text-xl md:text-3xl font-bold text-gray-800 mb-[60px]">
             Contact
           </h2>
-          <p className="text-sm md:text-base text-gray-600 mt-4 max-w-3xl text-center">
-            Provide your contact information here.
-          </p>
         </section>
 
       </div>
