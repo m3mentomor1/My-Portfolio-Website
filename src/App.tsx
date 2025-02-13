@@ -186,6 +186,12 @@ function App() {
       title: "Course, Test, & Exam Completion",
       items: [
         {
+          name: "Machine Learning Pipelines with Azure ML Studio",
+          issuer: "Coursera Project Network",
+          date: "Feb 2025",
+          image: "/Certifications/ML Pipelines.png",
+        },
+        {
           name: "DevNet Associate",
           issuer: "Cisco Networking Academy",
           date: "Jan 2025",
