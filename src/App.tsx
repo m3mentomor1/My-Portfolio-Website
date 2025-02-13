@@ -1892,21 +1892,21 @@ function App() {
                   <div className="w-full h-full">
                     <img
                       src={`${process.env.PUBLIC_URL}${data.images[0]}`}
-                      alt="li1"
+                      alt="vp1"
                       className="w-full h-full object-cover"
                     />
                   </div>
                   <div className="w-full h-full">
                     <img
                       src={`${process.env.PUBLIC_URL}${data.images[1]}`}
-                      alt="li2"
+                      alt="vp2"
                       className="w-full h-full object-cover"
                     />
                   </div>
                   <div className="w-full h-full">
                     <img
                       src={`${process.env.PUBLIC_URL}${data.images[2]}`}
-                      alt="li2"
+                      alt="vp3"
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -1916,7 +1916,7 @@ function App() {
                     <div className="w-full h-full flex items-center justify-center overflow-hidden">
                       <img
                         src={`${process.env.PUBLIC_URL}${data.images[3]}`}
-                        alt="li3"
+                        alt="vp4"
                         className="w-full h-full object-cover"
                       />
                     </div>
@@ -1925,7 +1925,7 @@ function App() {
                     <div className="w-full h-full flex items-center justify-center overflow-hidden relative">
                       <img
                         src={`${process.env.PUBLIC_URL}${data.images[4]}`}
-                        alt="li4"
+                        alt="vp5"
                         className="w-full h-full object-cover"
                       />
                       {data.images.length > 5 && (
